@@ -3,7 +3,11 @@ import stat from 'koa-static'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { StaticRouter } from 'react-router'
+import { Provider } from 'react-redux'
+
 import App from './front/src/app'
+import configureStore from './front/src/redux/configure-store'
+
 import template from './template'
 
 
@@ -15,10 +19,14 @@ app.use(async (ctx, next) => {
 
   const context = {}
 
+  const store = configureStore()
+
   const html = ReactDOMServer.renderToString(
-    <StaticRouter location={ ctx.url } context={ context }>
-      <App />
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter location={ ctx.url } context={ context }>
+        <App />
+      </StaticRouter>
+    </Provider>
   )
 
   ctx.body = template({ html })

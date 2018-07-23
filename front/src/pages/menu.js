@@ -10,9 +10,9 @@ const Item = ({to, text}) => (
 
 const d = [
   {to: '/', text: 'main'},
-  {to: '/page1', text: 'page 1'},
-  {to: '/page2', text: 'page 2'},
-  {to: '/page3', text: 'page 3'},
+  {to: '/sports', text: 'redux http get sports'},
+  {to: '/counter', text: 'redux counter'},
+  {to: '/dinamic-import', text: 'dinamic import'},
 ]
 
 export default () => (

@@ -10,15 +10,15 @@ import Loadable from 'react-loadable'
 
 
 import Menu from './pages/menu'
-import Page1 from './pages/page1'
-import Page2 from './pages/page2'
+import Sports from './pages/sports'
+import Counter from './pages/counter'
 import NotFound from './pages/not-found'
 
 /* 
-const Page3 = Loadable({
-  loader: () => import('./pages/page3'),
+const DinamicImport = Loadable({
+  loader: () => import('./pages/dinamic-import'),
   loading: () => <div>Load ...</div>,
-  serverSideRequirePath: path.join(__dirname, './pages/page3'),
+  serverSideRequirePath: path.join(__dirname, './pages/dinamic-import'),
 })
  */
 
@@ -26,9 +26,9 @@ export default () => (
   <Fragment>
     <Menu/>
     <Switch>
-      <Route exact path="/page1" component={Page1} />
-      <Route exact path="/page2" component={Page2} />
-      {/* <Route exact path="/page3" component={Page3} /> */}
+      <Route exact path="/sports" component={Sports} />
+      <Route exact path="/counter" component={Counter} />
+      {/* <Route exact path="/page3" component={DinamicImport} /> */}
       <Route component={NotFound} />
     </Switch>
   </Fragment>

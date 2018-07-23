@@ -1,0 +1,1 @@
+(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[1],{31:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var i=function(e){return e&&e.__esModule?e:{default:e}}(t(1));(0,t(32).tap)(e=>console.log("x is "+e),100),n.default=(()=>i.default.createElement("p",null,"This is page 3 ! it is dinamic import module"))}}]);

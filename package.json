@@ -4,26 +4,42 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "babel-watch server.js"
+    "front:dev": "webpack-dev-server --config ./front/webpack.config.js --mode=development",
+    "front:build": "webpack --config ./front/webpack.config.js --mode=production",
+    "serv:dev": "babel-watch server.js",
+    "serv:build": "babel server.js --out ./dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "koa": "^2.5.2",
+    "koa-static": "^5.0.0",
+    "ramda": "^0.25.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-helmet": "^5.2.0",
+    "react-loadable": "^5.4.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-import-inspector": "^2.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
-    "babel-watch": "^2.0.7"
+    "babel-watch": "^2.0.7",
+    "html-webpack-plugin": "^3.2.0",
+    "import-inspector": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-merge": "^4.1.3"
   }
 }

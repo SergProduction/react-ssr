@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { mapProps, compose } from 'recompose'
+import Helmet from 'react-helmet'
 
 
 import { fetch } from '../redux/actions'
@@ -16,6 +17,9 @@ class SportList extends React.Component {
 
     return (
       <div>
+      <Helmet
+        title="Sports"
+      />
         <ul>
           {sports.map(sport => <li key={sport.id}>{sport.name}</li>)}
         </ul>

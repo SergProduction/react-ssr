@@ -3,14 +3,16 @@ const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
+
 const base = {
   entry: {
-    app: path.resolve(__dirname, './src/index.js'),
+    app: [path.resolve(__dirname, './src/index.js')],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    library: '[name]'
+    library: '[name]',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -29,6 +31,7 @@ const base = {
 }
 
 const dev = {
+  mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
@@ -42,16 +45,27 @@ const dev = {
 }
 
 const prod = {
+  mode: 'production',
   plugins: [
     new UglifyJsPlugin(),
   ]
 }
 
+const serv = {
+  mode: 'development'
+}
 
-module.exports = (env, argv) => {
-  if (argv.mode === 'production') {
+
+const mode = (env) => {
+  if (env === 'production') {
     return merge(base, prod)
+  }
+
+  if (env === 'server') {
+    return merge(base, serv)
   }
 
   return merge(base, dev)
 }
+
+module.exports = mode(process.env.NODE_ENV)

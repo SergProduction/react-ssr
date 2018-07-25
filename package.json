@@ -6,15 +6,18 @@
   "scripts": {
     "front:dev": "webpack-dev-server --config ./front/webpack.config.js --mode=development",
     "front:build": "webpack --config ./front/webpack.config.js --mode=production",
-    "serv:dev": "babel-watch server.js",
-    "serv:build": "babel server.js --out ./dist"
+    "serv:dev": "cross-env NODE_ENV=development babel-watch ./server/index.js",
+    "serv:build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --mode=production --progress --profile --colors",
+    "all:build": "npm run front:build && npm run serv:build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "js-cookie": "^2.2.0",
     "koa": "^2.5.2",
+    "koa-cookie": "^1.0.0",
     "koa-static": "^5.0.0",
     "ramda": "^0.25.0",
     "react": "^16.4.1",
@@ -26,7 +29,8 @@
     "react-router-dom": "^4.3.1",
     "recompose": "^0.27.1",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^3.3.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -39,12 +43,16 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "babel-watch": "^2.0.7",
+    "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "import-inspector": "^2.0.0",
+    "koa-webpack-middleware": "^1.0.7",
+    "pm2": "^3.0.1",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
-    "webpack-merge": "^4.1.3"
+    "webpack-merge": "^4.1.3",
+    "webpack-node-externals": "^1.7.2"
   }
 }

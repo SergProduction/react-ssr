@@ -1,3 +1,4 @@
+import cookie from 'js-cookie'
 import { api } from '../api'
 
 const sports = (sportsList) => ({
@@ -5,10 +6,13 @@ const sports = (sportsList) => ({
   payload: sportsList
 })
 
-export const counter = (counter) => ({
-  type: 'counter',
-  payload: counter
-})
+export const counter = (counter) => {
+  cookie.set('counter', counter)
+  return {
+    type: 'counter',
+    payload: counter
+  }
+}
 
 
 export const fetch = {

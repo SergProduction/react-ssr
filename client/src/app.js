@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
+import Helmet from 'react-helmet'
+
 // import { tap } from 'ramda'
 
 
@@ -24,6 +26,15 @@ const DinamicImport = Loadable({
 
 export default () => (
   <Fragment>
+    <Helmet
+      htmlAttributes={{lang: "en", amp: undefined}} // amp takes no value
+      titleTemplate="%s | React SSR IN NODE JS"
+      titleAttributes={{itemprop: "name", lang: "en"}}
+      meta={[
+        {name: "description", content: "Server side rendering example"},
+        {name: "viewport", content: "width=device-width, initial-scale=1"},
+      ]}
+    />
     <Menu/>
     <Switch>
       <Route exact path="/sports" component={Sports} />

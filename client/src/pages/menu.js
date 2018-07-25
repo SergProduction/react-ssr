@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+
+const Li = styled.li`
+  list-style-type: thai;
+`
 
 
 const Item = ({to, text}) => (
-  <li>
+  <Li>
     <Link to={to}>{text}</Link>
-  </li>
+  </Li>
 )
 
 const d = [
